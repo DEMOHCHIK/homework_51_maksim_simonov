@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/info_style.css' %}">
+    <title>Информация кота</title>
+</head>
+<body>
+
+    <div class="main__cat_info">
+        <div class="img">
+            {% if cat.happiness >= 70 %}
+                <img src="{% static 'img/good.jpg' %}" alt="Happy Cat">
+            {% elif cat.happiness <= 30 %}
+                <img src="{% static 'img/bad.jpg' %}" alt="Bad Cat">
+            {% elif cat.satiety == 100 %}
+                <img src="{% static 'img/satiety.jpg' %}" alt="Satiety Cat">
+            {% else %}
+                <img src="{% static 'img/neutral.jpg' %}" alt="Neutral Cat">
+            {% endif %}
+        </div>
+        <div class="info__title">
+            <p>Кот - {{ cat.name }}</p>
+            <p>Возраст - {{ cat.age }} год</p>
+            <p>Уровень счастья - {{ cat.happiness }}</p>
+            <p>Уровень сытости - {{ cat.satiety }}</p>
+        </div>
+    </div>
+    <form method="post" action="{% url 'command' %}">
+        {% csrf_token %}
+        <label for="command">Выберите действие:</label>
+        <select id="command" name="command" required>
+            <option value="feed">Покормить</option>
+            <option value="play">Поиграть</option>
+            <option value="sleep">Уложить спать</option>
+        </select>
+        <button type="submit">Подтвердить</button>
+    </form>
+
+</body>

@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+    <title>Кошачья Игра</title>
+</head>
+<body>
+    <div class="main__home">
+        <p>Вас приветствует симулятор кота для начала введите имя кота</p>
+    </div>
+
+    <form method="post" action="{% url 'home' %}">
+    {% csrf_token %}
+    <input type="text" name="cat_name" placeholder="Введите имя кота" required><br><br>
+    <button type="submit" class="main__button">Создать</button>
+    </form>
+</body>
+</html>

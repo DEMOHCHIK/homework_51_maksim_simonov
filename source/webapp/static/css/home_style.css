@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+}
+
+.main__home {
+    margin-top: 200px;
+}
+
+.main__button {
+    text-decoration: none;
+    padding: 5px 20px;
+    color: black;
+    border: black solid 2px;
+}

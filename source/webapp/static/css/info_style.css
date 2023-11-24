@@ -1,0 +1,19 @@
+body {
+    background-color: bisque;
+    font-size: 20px;
+}
+
+.main__cat_info {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.main__cat_info img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.info__title {
+    margin-left: 30px;
+}
